@@ -1,0 +1,57 @@
+
+  #todo {
+    background-color: #127CA6;
+  }
+  
+  #inprogress {
+    background-color: #F2E085;
+  }
+
+  #impediment {
+    background-color: #F2A285;
+  }
+  
+  #done {
+    background-color: #A4D955;
+  }
+
+  #protocoled {
+    background-color: #88DFF2;
+  }
+
+  .kanban-block {
+    border: 0.125rem solid transparent;
+    min-height: 9.375rem;
+    padding: 0.6rem;
+    min-height: 4.5rem;
+    border-radius: 0.3rem;
+    margin-right: 1.25rem;
+  }
+  
+  /* .kanban-block:hover {
+    border: 2px dashed #007bff;
+  } */
+  
+  ul {
+    list-style-type: none;
+    padding: 0rem;
+    margin: 0.3125rem 0 0.3125rem 0;
+  }
+  
+  li {
+    padding: 0.3125rem;
+    margin-bottom: 0.3125rem;
+    background-color: #f0f0f0;
+    /* cursor: grab; */
+    border-radius: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  li:active {
+    /* cursor: grabbing; */
+    opacity: 0.3;
+  }
+  
+  
