@@ -107,74 +107,40 @@ export default function BoardKanban() {
   };
 
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-       <h1>teste
-       </h1>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <div className={'container text-center' + styles.container}>
+      <div className={styles.kanbanHeading}>
+            <strong className={styles.kanbanHeadingText}>Kanban card</strong>
+        </div>
+        <div className="col mb-3">
+              <button type="button" className="btn btn-primary" onClick={handleShow}>
+                  Criar Tarefa
+              </button>
+          </div>
+          {show && (
+        <Dialog 
+          show={show} 
+          onHide={handleClose} 
+          onAddTask={handleAddTask} 
+          newTask={newTask} 
+          setNewTask={setNewTask}
+          newTaskTitle={newTaskTitle}
+          setNewTaskTitle={setNewTaskTitle} 
+          handleRemoveTask={handleRemoveTask}
         />
+      )}
+        <div className="row">
+        {card.map((card) => (
+          <Card 
+            key={card.id} 
+            id={card.id} 
+            title={card.title} 
+            tasks={card.tasks} 
+            onDropTask={handleDropTask} 
+            onDragStart={handleDragStart}
+            onEditTask={handleEditTask} 
+          />
+        ))}
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
